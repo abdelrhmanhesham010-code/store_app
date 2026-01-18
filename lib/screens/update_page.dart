@@ -16,6 +16,7 @@ class UpdatePage extends StatelessWidget {
     //     ModalRoute.of(context)!.settings.arguments as ProductModel;
     return Scaffold(
       appBar: AppBar(
+        
         title: Text(
           'Update Page',
           style: TextStyle(fontFamily: 'Lora', fontWeight: FontWeight.bold),
