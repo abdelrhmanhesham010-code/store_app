@@ -7,9 +7,9 @@ class Api {
   Future<dynamic> get({required String url}) async {
     Response response = await dio.get(url);
     if (response.statusCode == 200) {
-      return response;
+      return response.data;
     } else {
-      throw Exception('oh fuck  ${response.statusCode}');
+      throw Exception('ooooH fuck  ${response.statusCode}');
     }
   }
 
@@ -19,6 +19,25 @@ class Api {
     @required String? token,
   }) async {
     Map<String, String> headers = {};
+    if (token != null) {
+      headers.addAll({'Authorization': 'Bearer $token'});
+    }
+    Response response = await Dio().post(url);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = response.data;
+      return response.data;
+    } else {
+      throw Exception(response.data);
+    }
+  }
+
+  Future<dynamic> put({
+    required String url,
+    @required dynamic data,
+    @required String? token,
+  }) async {
+    Map<String, String> headers = {};
+
     if (token != null) {
       headers.addAll({'Authorization': 'Bearer $token'});
     }

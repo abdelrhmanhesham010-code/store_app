@@ -2,15 +2,15 @@ import 'package:store_app/constans.dart';
 import 'package:store_app/helper/api.dart';
 import 'package:store_app/models/product_model.dart';
 
-class AddProduct {
-  Future<ProductModel> addProduct({
+class UpdateProductServics {
+  Future<ProductModel> updateProduct({
     required String title,
     required String price,
     required String description,
     required String image,
-    required String category,
+    String ?category,
   }) async {
-    Map<String, dynamic> data = await Api().post(
+    Map<String, dynamic> data = await Api().put(
       url: '$basUrl/products',
       data: {
         'title': title,
@@ -19,7 +19,8 @@ class AddProduct {
         'image': image,
         'category': category,
       },
-);
+    );
     return ProductModel.fromJson(data);
   }
+
 }
