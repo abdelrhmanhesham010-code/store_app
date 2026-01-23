@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/models/product_model.dart';
 import 'package:store_app/services/get_all_product_services.dart';
-import 'package:store_app/widget/custom.dart';
+import 'package:store_app/widget/custom_Card.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {

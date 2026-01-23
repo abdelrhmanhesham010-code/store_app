@@ -41,8 +41,12 @@ class Api {
     if (token != null) {
       headers.addAll({'Authorization': 'Bearer $token'});
     }
+    print('url = $url body = $data token = $token');
     Response response = await Dio().post(url);
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 ||
+        response.data == 201 ||
+        response.data == 202 ||
+        response.data == 204) {
       Map<String, dynamic> data = response.data;
       return response.data;
     } else {
